@@ -6,7 +6,7 @@ Summary(pl):	Styl do KDE - %{_name}
 Name:		kde-style-%{_name}
 Version:
 Release:	1
-License:	GPL
+License:	check first if it's GPL
 Group:		Themes
 Source0:	%{_name}-%{version}.tar.bz2
 # Source0-md5:
