@@ -52,6 +52,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%{_libdir}/kde3/kstyle_*.la
+%attr(755,root,root) %{_libdir}/kde3/kstyle_*.so
 %attr(755,root,root) %{_libdir}/kde3/plugins/styles/*.so
 %{_libdir}/kde3/plugins/styles/*.la
 %{_datadir}/apps/kstyle/themes/*.themerc
