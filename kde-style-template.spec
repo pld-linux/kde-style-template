@@ -2,7 +2,7 @@
 %define         _name
 
 Summary:        KDE style - %{_name}
-Summary(pl):    Styl KDE - %{_name}
+Summary(pl):    Styl do KDE - %{_name}
 Name:           kde-style-%{_name}
 Version:        
 Release:        1
