@@ -1,5 +1,5 @@
 
-%define         _name
+%define         _name NAME
 
 Summary:	KDE style - %{_name}
 Summary(pl):	Styl do KDE - %{_name}
