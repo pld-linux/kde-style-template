@@ -12,11 +12,9 @@ Source0:	%{_name}-%{version}.tar.bz2
 # Source0-md5:
 URL:
 BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	freetype-devel
-BuildRequires:	kdelibs-devel
 BuildRequires:	unsermake
-Requires:	kdelibs
+BuildRequires:	automake
+BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,22 +27,20 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %setup -q -n %{_name}-%{version}
 
 %build
-cp /usr/share/automake/config.sub admin
-export UNSERMAKE=/usr/share/unsermake/unsermake
+cp -f %{_datadir}/automake/config.sub admin
+export UNSERMAKE=%{_datadir}/unsermake/unsermake
 %{__make} -f Makefile.cvs
 
-%configure
-
+%configure \
+	--with-qt-libraries=%{_libdir}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-# create dirs if necessary
-#install -d $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir}
+	kde_htmldir="%{_kdedocdir}"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
