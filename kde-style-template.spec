@@ -1,8 +1,8 @@
 
 %define         _name
 
-Summary:        KDE theme - %{_name}
-Summary(pl):    Motyw KDE - %{_name}
+Summary:        KDE style - %{_name}
+Summary(pl):    Styl KDE - %{_name}
 Name:           kde-style-%{_name}
 Version:        
 Release:        1
