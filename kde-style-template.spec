@@ -8,7 +8,7 @@ Version:
 Release:	1
 License:	GPL
 Group:		Themes
-Source0:	{_name}-%{version}.tar.bz2
+Source0:	%{_name}-%{version}.tar.bz2
 # Source0-md5:
 URL:
 BuildRequires:	autoconf
