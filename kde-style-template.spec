@@ -29,7 +29,6 @@ BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %prep
 %setup -q -n %{_name}-%{version}
 
-
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_iconsdir}"; export kde_icondir
@@ -38,18 +37,19 @@ kde_icondir="%{_iconsdir}"; export kde_icondir
 
 %{__make}
 
+%install
+rm -rf $RPM_BUILD_ROOT
+# create dirs if necessary
+#install -d $RPM_BUILD_ROOT
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-
-
-%install
-rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
-
 %files 
 %defattr(644,root,root,755)
-%{_libdir}/kde3/plugins/styles/*.la
 %attr(755,root,root) %{_libdir}/kde3/plugins/styles/*.so
+%{_libdir}/kde3/plugins/styles/*.la
 %{_datadir}/apps/kstyle/themes/*.themerc
