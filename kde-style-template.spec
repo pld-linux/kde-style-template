@@ -21,10 +21,10 @@ BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define         _htmldir        %{_docdir}/kde/HTML
 
 %description 
-%{_theme} is
+%{_name} is
 
 %description -l pl
-%{_theme} to styl
+%{_name} to styl
 
 %prep
 %setup -q -n %{_name}-%{version}
@@ -32,11 +32,16 @@ BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
+kde_icondir="%{_iconsdir}"; export kde_icondir
 
 %configure
 
 %{__make}
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+
 
 %install
 rm -rf $RPM_BUILD_ROOT
