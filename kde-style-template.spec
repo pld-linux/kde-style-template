@@ -29,8 +29,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %setup -q -n %{_name}-%{version}
 
 %build
-kde_htmldir="%{_kdedocdir}"; export kde_htmldir
-kde_icondir="%{_iconsdir}"; export kde_icondir
 cp /usr/share/automake/config.sub admin
 export UNSERMAKE=/usr/share/unsermake/unsermake
 %{__make} -f Makefile.cvs
@@ -45,7 +43,8 @@ rm -rf $RPM_BUILD_ROOT
 #install -d $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	kde_htmldir=%{_kdedocdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
